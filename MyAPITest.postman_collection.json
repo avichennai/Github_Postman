@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "8eb240f0-575f-4ac1-b0f9-5717b725453b",
+		"name": "MyAPITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "APIGetPositiveRequests",
+			"item": [
+				{
+					"name": "RequestPostAssert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(\"Avinash\");\r",
+									"pm.expect(jsonData.skills.name).to.eql(\"Java\");\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n            \"id\": 2534,\r\n            \"name\": \"Avinash\",\r\n            \"email\": \"tenali.test@15ce.com\",\r\n            \"gender\": \"male\",\r\n            \"status\": \"active\",\r\n            \"skills\":{\r\n                \"name\":\"Java\",\r\n                \"Address\":\".Net\"\r\n            }\r\n        }"
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
